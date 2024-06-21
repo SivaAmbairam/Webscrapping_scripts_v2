@@ -143,6 +143,7 @@ if __name__ == '__main__':
                                         'Nasco_product_price': product_price,
                                         'Nasco_product_url': product_url,
                                         'Nasco_image_url': image_url,
+                                        'Nasco_product_desc': product_desc
                                     }
                                     articles_df = pd.DataFrame([dictionary])
                                     articles_df.drop_duplicates(subset=['Nasco_product_id', 'Nasco_product_name'],
@@ -194,6 +195,7 @@ if __name__ == '__main__':
                                             'Nasco_product_price': product_price,
                                             'Nasco_product_url': product_url,
                                             'Nasco_image_url': image_url,
+                                            'Nasco_product_desc': product_desc
                                         }
                                         articles_df = pd.DataFrame([dictionary])
                                         articles_df.drop_duplicates(subset=['Nasco_product_id', 'Nasco_product_name'], keep='first', inplace=True)
