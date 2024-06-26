@@ -59,7 +59,7 @@ if __name__ == '__main__':
         if inner_content.find('ul', class_='row'):
             all_urls = inner_content.find('ul', class_='row').find_all('li')
             for single_url in all_urls:
-                product_sub_category = single_url.a.text.strip()
+                product_sub_name = single_url.a.text.strip()
                 main_url = f"{base_url}{single_url.a['href']}"
                 print(f'main_url -----------> {main_url}')
                 if main_url in read_log_file():
@@ -73,14 +73,16 @@ if __name__ == '__main__':
                     for single_data in inner_data:
                         inner_url = f'{base_url}{single_data["href"]}'
                         inner_category = strip_it(single_data.find('h3', class_='c-category-title').text.strip())
-                        product_sub_category = f'{product_sub_category}-{inner_category}'
+                        sub_category = single_url.a.text.strip()
+                        product_sub = f'{sub_category}-{inner_category}'
                         random_sleep(1, 10)
                         other_request = get_soup(inner_url, headers)
                         if other_request.find('div', class_='row px-1'):
-                            inner_data = other_request.find('div', class_='row px-1').find_all('a',
-                                                                                               class_='c-category-list')
+                            inner_data = other_request.find('div', class_='row px-1').find_all('a', class_='c-category-list')
                             for single_datas in inner_data:
                                 inner_process_url = f'{base_url}{single_datas["href"]}'
+                                inner_categories = strip_it(single_datas.find('h3', class_='c-category-title').text.strip())
+                                product_sub_category = f'{product_sub}-{inner_categories}'
                                 inner_process_request = get_soup(inner_process_url, headers)
                                 '''GET PAGINATION'''
                                 if inner_process_request.find('ul',
@@ -210,7 +212,7 @@ if __name__ == '__main__':
                                                     product_quantity = 1
                                             except:
                                                 product_name = json_content['name']
-                                                product_quantity = ''
+                                                product_quantity = '1'
                                             '''PRODUCT DESC'''
                                             try:
                                                 desc = inner_json['description']
@@ -255,6 +257,7 @@ if __name__ == '__main__':
                                                 articles_df.to_csv(f'{file_name}.csv', index=False)
                                             write_visited_log(product_id)
                         else:
+                            product_sub_category = product_sub
                             '''GET PAGINATION'''
                             if other_request.find('ul',
                                                   class_='c-pagination pagination justify-content-start pagination-lg'):
@@ -304,7 +307,7 @@ if __name__ == '__main__':
                                                     product_quantity = 1
                                             except:
                                                 product_name = json_content['name']
-                                                product_quantity = ''
+                                                product_quantity = '1'
                                             '''PRODUCT DESC'''
                                             try:
                                                 desc = inner_json['description']
@@ -384,7 +387,7 @@ if __name__ == '__main__':
                                                 product_quantity = 1
                                         except:
                                             product_name = json_content['name']
-                                            product_quantity = ''
+                                            product_quantity = '1'
                                         '''PRODUCT DESC'''
                                         try:
                                             desc = inner_json['description']
@@ -428,6 +431,7 @@ if __name__ == '__main__':
                                             articles_df.to_csv(f'{file_name}.csv', index=False)
                                         write_visited_log(product_id)
                 else:
+                    product_sub_category = product_sub_name
                     '''GET PAGINATION'''
                     if inner_request.find('ul', class_='c-pagination pagination justify-content-start pagination-lg'):
                         total_page = inner_request.find('ul',
@@ -476,7 +480,7 @@ if __name__ == '__main__':
                                             product_quantity = 1
                                     except:
                                         product_name = json_content['name']
-                                        product_quantity = ''
+                                        product_quantity = '1'
                                     '''PRODUCT DESC'''
                                     try:
                                         desc = inner_json['description']
@@ -555,7 +559,7 @@ if __name__ == '__main__':
                                         product_quantity = 1
                                 except:
                                     product_name = json_content['name']
-                                    product_quantity = ''
+                                    product_quantity = '1'
                                 '''PRODUCT DESC'''
                                 try:
                                     desc = inner_json['description']
