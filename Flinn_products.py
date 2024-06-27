@@ -7,13 +7,17 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 
 def write_visited_log(url):
-    with open(f'Visited_urls_flinn.txt', 'a', encoding='utf-8') as file:
+    output_dir = os.path.join('Output', 'temp')
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    file_path = os.path.join(output_dir, 'Visited_Flinn_urls.txt')
+    with open(file_path, 'a', encoding='utf-8') as file:
         file.write(f'{url}\n')
 
-
 def read_log_file():
-    if os.path.exists(f'Visited_urls_flinn.txt'):
-        with open(f'Visited_urls_flinn.txt', 'r', encoding='utf-8') as read_file:
+    file_path = os.path.join('Output', 'temp', 'Visited_Flinn_urls.txt')
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding='utf-8') as read_file:
             return read_file.read().split('\n')
     return []
 
@@ -199,10 +203,14 @@ def save_product_data(product_dict):
     if product_dict is not None:
         articles_df = pd.DataFrame([product_dict])
         articles_df.drop_duplicates(subset=['Flinn_product_id', 'Flinn_product_name'], keep='first', inplace=True)
-        if os.path.isfile(f'{file_name}.csv'):
-            articles_df.to_csv(f'{file_name}.csv', index=False, header=False, mode='a')
+        output_dir = 'Output'
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        file_path = os.path.join(output_dir, f'{file_name}.csv')
+        if os.path.isfile(file_path):
+            articles_df.to_csv(file_path, index=False, header=False, mode='a')
         else:
-            articles_df.to_csv(f'{file_name}.csv', index=False)
+            articles_df.to_csv(file_path, index=False)
         logging.info(f"Saved product: {product_dict.get('Flinn_product_name', 'N/A')}")
 
 
