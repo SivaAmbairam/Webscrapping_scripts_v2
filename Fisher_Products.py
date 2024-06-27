@@ -229,7 +229,7 @@ if __name__ == '__main__':
                                             product_quantity = ''
                                         else:
                                             product_quantity = strip_it(product_request.find('span', attrs={'itemprop': 'offers'}).find('span', itemprop='unitText')['content'].replace('Each of 1', '1').replace('Each', '1').replace('Case of', '').replace('Pack of', '').replace('EA', '').strip())
-                                            product_quantity = re.search('\d+', str(product_quantity)).group()
+                                            product_quantity = re.search('\\d+', str(product_quantity)).group()
                                     except:
                                         product_quantity = ''
                                 else:
@@ -244,8 +244,8 @@ if __name__ == '__main__':
                                             product_quantity = ''
                                         else:
                                             product_quantity = strip_it(product_request.find('span', itemprop='price').find('span', itemprop='unitText')['content'].replace('Each of 1', '1').replace('Each', '1').replace('Case of', '').replace('Pack of', '').strip())
-                                            if re.search('\d+', str(product_quantity)).group():
-                                                product_quantity = re.search('\d+', str(product_quantity)).group()
+                                            if re.search('\\d+', str(product_quantity)).group():
+                                                product_quantity = re.search('\\d+', str(product_quantity)).group()
                                             else:
                                                 product_quantity = 1
                                     except:
@@ -326,7 +326,7 @@ if __name__ == '__main__':
                                             product_quantity = ''
                                         else:
                                             product_quantity = strip_it(product_content.find('span', attrs={'itemprop':'offers'}).find('span', itemprop='unitText')['content'].replace('Each of 1', '1').replace('Each', '1').replace('Case of', '').replace('Pack of', '').replace('EA', '').strip())
-                                            product_quantity = re.search('\d+', str(product_quantity)).group()
+                                            product_quantity = re.search('\\d+', str(product_quantity)).group()
                                     except:
                                         product_quantity = ''
                                 else:
@@ -341,7 +341,7 @@ if __name__ == '__main__':
                                             product_quantity = ''
                                         else:
                                             product_quantity = strip_it(product_content.find('span', itemprop='price').find('span', itemprop='unitText')['content'].replace('Each of 1', '1').replace('Each', '1').replace('Case of', '').replace('Pack of', '').strip())
-                                            product_quantity = re.search('\d+', str(product_quantity)).group()
+                                            product_quantity = re.search('\\d+', str(product_quantity)).group()
                                     except:
                                         product_quantity = ''
                             if product_id in read_log_file():
