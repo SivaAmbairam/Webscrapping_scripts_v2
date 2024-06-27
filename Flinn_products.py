@@ -207,7 +207,7 @@ def save_product_data(product_dict):
 
 
 if __name__ == '__main__':
-    file_name = os.path.basename(__file__).rstrip('.py')
+    file_name = 'Flinn_Products'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
     }
