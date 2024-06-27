@@ -163,9 +163,9 @@ if __name__ == '__main__':
         sub_product = main_product.find_all('li', class_='')
         for products in sub_product:
             product_sub_category = products.a.text.strip()
-            main_url = f'{base_url}{products.a['href']}'
+            main_url = f"{base_url}{products.a['href']}"
             if 'shop-by-learning-environment/' in str(products):
-                main_url = f'{base_url}{products.a['href']}'
+                main_url = f"{base_url}{products.a['href']}"
                 if main_url in read_log_file():
                     continue
                 sub_request = get_soup_verify(main_url, headers)
@@ -328,7 +328,7 @@ if __name__ == '__main__':
                 write_visited_log(main_url)
             else:
                 if 'ideas-resources' not in str(products):
-                    main_url = f'{base_url}{products.a['href']}'
+                    main_url = f"{base_url}{products.a['href']}"
                     if main_url in read_log_file():
                         continue
                     inner_request = get_soup_verify(main_url, headers)
