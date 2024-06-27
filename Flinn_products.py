@@ -56,8 +56,8 @@ def extract_product_info(single_contents, product_request):
                 product_id = str(single_contents['SKUNumbers']).replace("['", '').replace("']", '').strip()
         except:
             pass
-        if re.search(r'Pkg. of \d+', str(product_name)):
-            product_quantity = re.search(r'Pkg. of \d+', str(product_name)).group().replace('Pkg. of', '').strip()
+        if re.search(r'Pkg. of \\d+', str(product_name)):
+            product_quantity = re.search(r'Pkg. of \\d+', str(product_name)).group().replace('Pkg. of', '').strip()
         if product_id in read_log_file():
             return
         write_visited_log(product_id)
@@ -88,8 +88,8 @@ def extract_sub_product_info(product_request, product_url):
         product_id = inner_data.find('span', class_='code').extract().text.replace('(', '').replace(')', '').strip()
         product_names = strip_it(inner_data.text.strip())
         product_name = product_names
-        if re.search('Pkg. of \d+', str(product_name)):
-            product_quantity = re.search('Pkg. of \d+', str(product_name)).group().replace('Pkg. of', '').strip()
+        if re.search('Pkg. of \\d+', str(product_name)):
+            product_quantity = re.search('Pkg. of \\d+', str(product_name)).group().replace('Pkg. of', '').strip()
         else:
             product_quantity = 1
     except:
