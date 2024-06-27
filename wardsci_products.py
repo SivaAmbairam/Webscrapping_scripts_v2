@@ -17,7 +17,7 @@ def read_log_file():
 
 if __name__ == '__main__':
     timestamp = datetime.now().date().strftime('%Y%m%d')
-    file_name = 'Wardsci_products'
+    file_name = 'Wardsci_Products'
     url = 'https://www.wardsci.com/cms/products'
     base_url = 'https://www.wardsci.com'
     headers = {
