@@ -112,7 +112,7 @@ if __name__ == '__main__':
                                             if 'Each' in extract_tag:
                                                 product_quantity = '1'
                                             else:
-                                                product_quantity = re.search('\d+', str(extract_tag)).group()
+                                                product_quantity = re.search('\\d+', str(extract_tag)).group()
                                         except:
                                             product_quantity = '1'
                                         try:
@@ -209,7 +209,7 @@ if __name__ == '__main__':
                                         if 'Each' in extract_tag:
                                             product_quantity = '1'
                                         else:
-                                            product_quantity = re.search('\d+', str(extract_tag)).group()
+                                            product_quantity = re.search('\\d+', str(extract_tag)).group()
                                     except:
                                         product_quantity = '1'
                                     try:
