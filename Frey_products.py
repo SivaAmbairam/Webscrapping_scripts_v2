@@ -73,7 +73,7 @@ def read_log_file():
 
 if __name__ == '__main__':
     timestamp = datetime.now().date().strftime('%Y%m%d')
-    file_name = 'Frey_products'
+    file_name = 'Frey_Products'
     url = 'https://schoolspecialty.com/'
     base_url = 'https://schoolspecialty.com'
     cookies = {
