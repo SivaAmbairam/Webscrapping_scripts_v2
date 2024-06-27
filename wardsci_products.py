@@ -4,13 +4,17 @@ from module_package import *
 
 
 def write_visited_log(url):
-    with open(f'Visited_Wardsci_urls.txt', 'a', encoding='utf-8') as file:
+    output_dir = os.path.join('Output', 'temp')
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    file_path = os.path.join(output_dir, 'Visited_Wardsci_urls.txt')
+    with open(file_path, 'a', encoding='utf-8') as file:
         file.write(f'{url}\n')
 
-
 def read_log_file():
-    if os.path.exists(f'Visited_Wardsci_urls.txt'):
-        with open(f'Visited_Wardsci_urls.txt', 'r', encoding='utf-8') as read_file:
+    file_path = os.path.join('Output', 'temp', 'Visited_Wardsci_urls.txt')
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding='utf-8') as read_file:
             return read_file.read().split('\n')
     return []
 
@@ -172,11 +176,14 @@ if __name__ == '__main__':
                                                             subset=['Wardsci_product_id', 'Wardsci_product_name'],
                                                             keep='first',
                                                             inplace=True)
-                                                        if os.path.isfile(f'{file_name}.csv'):
-                                                            articles_df.to_csv(f'{file_name}.csv', index=False,
-                                                                               header=False, mode='a')
+                                                        output_dir = 'Output'
+                                                        if not os.path.exists(output_dir):
+                                                            os.makedirs(output_dir)
+                                                        file_path = os.path.join(output_dir, f'{file_name}.csv')
+                                                        if os.path.isfile(file_path):
+                                                            articles_df.to_csv(file_path, index=False, header=False, mode='a')
                                                         else:
-                                                            articles_df.to_csv(f'{file_name}.csv', index=False)
+                                                            articles_df.to_csv(file_path, index=False)
                                                         write_visited_log(product_id)
                     else:
                         product_sub_category = f'{sub_category} - {inner_category}'
@@ -287,11 +294,14 @@ if __name__ == '__main__':
                                                         subset=['Wardsci_product_id', 'Wardsci_product_name'],
                                                         keep='first',
                                                         inplace=True)
-                                                    if os.path.isfile(f'{file_name}.csv'):
-                                                        articles_df.to_csv(f'{file_name}.csv', index=False,
-                                                                           header=False, mode='a')
+                                                    output_dir = 'Output'
+                                                    if not os.path.exists(output_dir):
+                                                        os.makedirs(output_dir)
+                                                    file_path = os.path.join(output_dir, f'{file_name}.csv')
+                                                    if os.path.isfile(file_path):
+                                                        articles_df.to_csv(file_path, index=False, header=False, mode='a')
                                                     else:
-                                                        articles_df.to_csv(f'{file_name}.csv', index=False)
+                                                        articles_df.to_csv(file_path, index=False)
                                                     write_visited_log(product_id)
             else:
                 product_sub_category = sub_category
@@ -399,10 +409,13 @@ if __name__ == '__main__':
                                                 subset=['Wardsci_product_id', 'Wardsci_product_name'],
                                                 keep='first',
                                                 inplace=True)
-                                            if os.path.isfile(f'{file_name}.csv'):
-                                                articles_df.to_csv(f'{file_name}.csv', index=False,
-                                                                   header=False, mode='a')
+                                            output_dir = 'Output'
+                                            if not os.path.exists(output_dir):
+                                                os.makedirs(output_dir)
+                                            file_path = os.path.join(output_dir, f'{file_name}.csv')
+                                            if os.path.isfile(file_path):
+                                                articles_df.to_csv(file_path, index=False, header=False, mode='a')
                                             else:
-                                                articles_df.to_csv(f'{file_name}.csv', index=False)
+                                                articles_df.to_csv(file_path, index=False)
                                             write_visited_log(product_id)
         write_visited_log(main_url)
