@@ -17,7 +17,7 @@ def read_log_file():
 
 if __name__ == '__main__':
     timestamp = datetime.now().date().strftime('%Y%m%d')
-    file_name = 'Nasco_products'
+    file_name = 'Nasco_Products'
     url = 'https://www.nascoeducation.com/'
     base_url = ''
     headers = {
