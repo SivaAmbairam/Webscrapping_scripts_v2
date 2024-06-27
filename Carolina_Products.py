@@ -124,8 +124,8 @@ if __name__ == '__main__':
                                                 '''PRODUCT NAME'''
                                                 try:
                                                     product_name = inner_json['name']
-                                                    if re.search('Pack of \d+', str(product_name)):
-                                                        product_quantity = re.search('Pack of \d+', str(product_name)).group().replace(
+                                                    if re.search('Pack of \\d+', str(product_name)):
+                                                        product_quantity = re.search('Pack of \\d+', str(product_name)).group().replace(
                                                             'Pack of', '').strip()
                                                     else:
                                                         product_quantity = 1
@@ -203,8 +203,8 @@ if __name__ == '__main__':
                                             '''PRODUCT NAME'''
                                             try:
                                                 product_name = inner_json['name']
-                                                if re.search('Pack of \d+', str(product_name)):
-                                                    product_quantity = re.search('Pack of \d+',
+                                                if re.search('Pack of \\d+', str(product_name)):
+                                                    product_quantity = re.search('Pack of \\d+',
                                                                                  str(product_name)).group().replace(
                                                         'Pack of', '').strip()
                                                 else:
@@ -298,8 +298,8 @@ if __name__ == '__main__':
                                             '''PRODUCT NAME'''
                                             try:
                                                 product_name = inner_json['name']
-                                                if re.search('Pack of \d+', str(product_name)):
-                                                    product_quantity = re.search('Pack of \d+',
+                                                if re.search('Pack of \\d+', str(product_name)):
+                                                    product_quantity = re.search('Pack of \\d+',
                                                                                  str(product_name)).group().replace(
                                                         'Pack of', '').strip()
                                                 else:
@@ -378,8 +378,8 @@ if __name__ == '__main__':
                                         '''PRODUCT NAME'''
                                         try:
                                             product_name = inner_json['name']
-                                            if re.search('Pack of \d+', str(product_name)):
-                                                product_quantity = re.search('Pack of \d+',
+                                            if re.search('Pack of \\d+', str(product_name)):
+                                                product_quantity = re.search('Pack of \\d+',
                                                                              str(product_name)).group().replace(
                                                     'Pack of', '').strip()
                                             else:
@@ -471,8 +471,8 @@ if __name__ == '__main__':
                                     '''PRODUCT NAME'''
                                     try:
                                         product_name = inner_json['name']
-                                        if re.search('Pack of \d+', str(product_name)):
-                                            product_quantity = re.search('Pack of \d+',
+                                        if re.search('Pack of \\d+', str(product_name)):
+                                            product_quantity = re.search('Pack of \\d+',
                                                                          str(product_name)).group().replace(
                                                 'Pack of', '').strip()
                                         else:
@@ -551,8 +551,8 @@ if __name__ == '__main__':
                                 '''PRODUCT NAME'''
                                 try:
                                     product_name = inner_json['name']
-                                    if re.search('Pack of \d+', str(product_name)):
-                                        product_quantity = re.search('Pack of \d+', str(product_name)).group().replace(
+                                    if re.search('Pack of \\d+', str(product_name)):
+                                        product_quantity = re.search('Pack of \\d+', str(product_name)).group().replace(
                                             'Pack of', '').strip()
                                     else:
                                         product_quantity = 1
