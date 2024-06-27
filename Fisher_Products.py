@@ -162,7 +162,7 @@ if __name__ == '__main__':
                             other_content = product_request.find('table', class_='general_table product_table responsive_product_table').find_all('tbody', class_='itemRowContent')
                             for single_content in other_content:
                                 '''PRODUCT URL'''
-                                product_url = f'{base_url}{single_content.find('a', class_='chemical_fmly_glyph')['href']}'
+                                product_url = f"{base_url}{single_content.find('a', class_='chemical_fmly_glyph')['href']}"
                                 print(product_url)
                                 '''PRODUCT ID'''
                                 try:
@@ -220,7 +220,7 @@ if __name__ == '__main__':
                                 if product_request.find('span', attrs={'itemprop': 'offers'}):
                                     '''PRODUCT PRICE'''
                                     try:
-                                        product_price = f'$ {strip_it(product_request.find('span', attrs={'itemprop': 'offers'}).find('span', itemprop='price')['content'].strip())}'
+                                        product_price = f"$ {strip_it(product_request.find('span', attrs={'itemprop': 'offers'}).find('span', itemprop='price')['content'].strip())}"
                                     except:
                                         product_price = ''
                                     '''PRODUCT QUANTITY'''
@@ -235,7 +235,7 @@ if __name__ == '__main__':
                                 else:
                                     '''PRODUCT PRICE'''
                                     try:
-                                        product_price = f'$ {strip_it(product_request.find('span', itemprop='price')['content'].strip())}'
+                                        product_price = f"$ {strip_it(product_request.find('span', itemprop='price')['content'].strip())}"
                                     except:
                                         product_price = ''
                                     '''PRODUCT QUANTITY'''
@@ -317,7 +317,7 @@ if __name__ == '__main__':
                                 if product_content.find('span', attrs={'itemprop':'offers'}):
                                     '''PRODUCT PRICE'''
                                     try:
-                                        product_price = f'$ {strip_it(product_content.find('span', attrs={'itemprop':'offers'}).find('span', itemprop='price')['content'].strip())}'
+                                        product_price = f"$ {strip_it(product_content.find('span', attrs={'itemprop':'offers'}).find('span', itemprop='price')['content'].strip())}"
                                     except:
                                         product_price = ''
                                     '''PRODUCT QUANTITY'''
@@ -332,7 +332,7 @@ if __name__ == '__main__':
                                 else:
                                     '''PRODUCT PRICE'''
                                     try:
-                                        product_price = f'$ {strip_it(product_content.find('span', itemprop='price')['content'].strip())}'
+                                        product_price = f"$ {strip_it(product_content.find('span', itemprop='price')['content'].strip())}"
                                     except:
                                         product_price = ''
                                     '''PRODUCT QUANTITY'''
