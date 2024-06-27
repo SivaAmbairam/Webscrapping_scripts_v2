@@ -17,7 +17,7 @@ def read_log_file():
 
 if __name__ == '__main__':
     timestamp = datetime.now().date().strftime('%Y%m%d')
-    file_name = 'Fisher_products'
+    file_name = 'Fisher_Products'
     all_data = []
     url = 'https://www.fishersci.com/us/en/browse/products'
     base_url = 'https://www.fishersci.com'
