@@ -108,7 +108,7 @@ if __name__ == '__main__':
                                                         if 'Each' in str(quantity):
                                                             product_quantity = '1'
                                                         else:
-                                                            product_quantity = re.search('\d+', str(quantity)).group()
+                                                            product_quantity = re.search('\\d+', str(quantity)).group()
                                                     except:
                                                         product_quantity = ''
                                                     '''PRODUCT ID'''
@@ -223,7 +223,7 @@ if __name__ == '__main__':
                                                     if 'Each' in str(quantity):
                                                         product_quantity = '1'
                                                     else:
-                                                        product_quantity = re.search('\d+', str(quantity)).group()
+                                                        product_quantity = re.search('\\d+', str(quantity)).group()
                                                 except:
                                                     product_quantity = ''
                                                 '''PRODUCT ID'''
@@ -337,7 +337,7 @@ if __name__ == '__main__':
                                             if 'Each' in str(quantity):
                                                 product_quantity = '1'
                                             else:
-                                                product_quantity = re.search('\d+', str(quantity)).group()
+                                                product_quantity = re.search('\\d+', str(quantity)).group()
                                         except:
                                             product_quantity = ''
                                         '''PRODUCT ID'''
