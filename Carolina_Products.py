@@ -23,7 +23,7 @@ def random_sleep(min_seconds=1, max_seconds=5):
 
 if __name__ == '__main__':
     timestamp = datetime.now().date().strftime('%Y%m%d')
-    file_name = os.path.basename(__file__).rstrip('.py')
+    file_name = Carolina_Products
     url = 'https://www.carolina.com/'
     # url = 'https://www.carolina.com/building-blocks-of-science-kits-grades-k-to-2/building-blocks-of-science-a-new-generation-discovering-plants/FAM_514001.pr'
     # url = 'https://www.carolina.com/human-genetics/how-do-polygenic-risk-scores-stack-up-kit/214828.pr'
